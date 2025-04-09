@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet & Nutrition Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000000;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            transition: 0.3s;
+        }
+        .carousel-item img {
+            inline-size: 100%;
+            block-size: 100vh;
+            object-fit: cover;
+        }
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .discussion-box {
+            background: rgb(255, 84, 84);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .comment-box {
+            border-radius: 10px;
+            padding: 10px;
+            margin-block-start: 10px;
+            background: #9dc0df;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#Index">Diet & Nutrition Blog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#Index">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#diet-section">Diets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Discussion">Discussion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="landingCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-item active">
+                <img src="https://nutritionfacts.org/app/uploads/2019/09/47-24-Are-Keto-Diets-Safe_.jpg" class="d-block w-100" alt="Healthy Food">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Welcome to the Diet & Nutrition Blog</h1>
+                    <p>Your guide to a healthier lifestyle</p>
+                    <a href="#diet-section" class="btn btn-primary btn-lg">Explore Diets</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.bisnis.com/upload/img/diet_keto.jpg" class="d-block w-100" alt="Fruits and Vegetables">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Eat Clean, Live Healthy</h1>
+                    <p>Discover the best diets for a better lifestyle</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://twigscafe.com/wp-content/uploads/2020/11/keto-diet-foods.jpg" class="d-block w-100" alt="Balanced Diet">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Nutrition That Works</h1>
+                    <p >Learn how to balance your diet effectively</p>
+                </div>
+            </div>>
+              
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#landingCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#landingCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <div class="container mt-4" id="diet-section">
+        <h1 class="text-center text-white">Popular Diets</h1>
+        <div class="row" id="diet-list"></div>
+    </div>
+    <div class="container mt-4" id="about">
+        <h1 class="text-center text-white">About Us</h1>
+        <p class="text-center text-white">Welcome to the Diet & Nutrition Blog, your trusted source for expert advice on healthy eating, weight management, and overall well-being. Our mission is to provide insightful articles, research-backed nutrition tips, and a wide variety of diet plans to suit different lifestyles and health goals.</p>
+        <p class="text-center text-white">Whether you're looking to lose weight, build muscle, follow a plant-based lifestyle, or simply eat healthier, we have curated information to help you make informed choices. Our team of experienced nutritionists and fitness enthusiasts strive to keep you updated with the latest trends and scientific discoveries in the world of diet and wellness.</p>
+        <p class="text-center text-white">Join our community and start your journey to a healthier you today!</p>
+    </div>
+    
+    <div class="container mt-4" id="Discussion">
+        <h1 class="text-center text-white">Discussion</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Question 1</h5>
+                        <p class="card-text">What is a balanced diet?</p>
+                        <div class="discussion-box p-4">
+                            <h5 class="mb-3">Join the Conversation</h5>
+                            <input type="text" class="form-control mb-2" id="usernameInput" placeholder="Your name">
+                            <textarea class="form-control" id="discussionInput" rows="4" placeholder="Share your thoughts..."></textarea>
+                            <button class="btn btn-primary mt-3 w-100" onclick="postComment()">Post Comment</button>
+                            <div id="comments" class="mt-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">  
+                        <h5 class="card-title">Question 2</h5>
+                        <p class="card-text">What is a ketogenic diet?</p>
+                        <div class="discussion-box p-4">
+                            <h5 class="mb-3">Join the Conversation</h5>
+                            <input type="text" class="form-control mb-2" id="usernameInput" placeholder="Your name">
+                            <textarea class="form-control" id="discussionInput" rows="4" placeholder="Share your thoughts..."></textarea>
+                            <button class="btn btn-primary mt-3 w-100" onclick="postComment()">Post Comment</button>
+                            <div id="comments" class="mt-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+    
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>&copy; 2025 Diet & Nutrition Blog | All Rights Reserved</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        
+
+        const diets = [
+    { 
+        name: "Ketogenic (Keto) Diet", 
+        desc: "Low-carb, high-fat diet that forces the body into ketosis.", 
+        img: "https://scitechdaily.com/images/Food-Keto-Diet-Text.jpg", 
+        link: "keto.html"
+    },
+    { 
+        name: "Intermittent Fasting (IF)", 
+        desc: "Eating is restricted to specific time windows.", 
+        img: "https://cdn3.giving.massgeneral.org/assets/intermittent-banner-1.jpg", 
+        link: "if.html"
+    },
+    { 
+        name: "Mediterranean Diet", 
+        desc: "Rich in fruits, vegetables, fish, olive oil, and whole grains.", 
+        img: "https://www.dietspotlight.com/wp-content/uploads/The-Mediterranean-Diet.jpg", 
+        link: "mediterranean.html"
+    },
+    { 
+        name: "High-Protein Diet", 
+        desc: "Focuses on protein-rich foods to support muscle growth.", 
+        img: "https://blog.bioptimizers.com/wp-content/uploads/2018/05/bigstock-Best-Foods-High-In-Protein-207766945.jpg", 
+        link: "highprotein.html"
+    },
+    { 
+        name: "Vegan Diet", 
+        desc: "No animal products at all (no meat, dairy, eggs, or honey).", 
+        img: "https://ik.imagekit.io/shortpedia/Voices/wp-content/uploads/2021/05/Vegan-diet-1.jpg", 
+        link: "vegan.html"
+    }
+];
+
+
+        const dietList = document.getElementById("diet-list");
+        diets.forEach(diet => {
+            const dietCard = `<div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="${diet.img}" class="card-img-top" alt="${diet.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${diet.name}</h5>
+                        <p class="card-text">${diet.desc}</p>
+                        <a href="${diet.link}" class="btn btn-primary" target="_blank">Read More</a>
+
+                    </div>
+                </div>
+            </div>`;
+            dietList.innerHTML += dietCard;
+        }
+    )
+    
+    </script>
+    <script>
+        function postComment() {
+            const username = document.getElementById("usernameInput").value.trim();
+            const text = document.getElementById("discussionInput").value.trim();
+            
+            if (!username || !text) return;
+        
+            const commentBox = createComment(username, text);
+            document.getElementById("comments").prepend(commentBox);
+        
+            // Clear input fields
+            document.getElementById("usernameInput").value = "";
+            document.getElementById("discussionInput").value = "";
+        }
+        
+        function createComment(user, message) {
+            const box = document.createElement("div");
+            box.className = "comment-box";
+        
+            box.innerHTML = `
+                <strong>${user}:</strong> <span>${message}</span>
+                <div class="mt-2">
+                    <button class="btn btn-sm btn-outline-primary me-2" onclick="likeComment(this)">Like <span class="badge bg-primary">0</span></button>
+                    <button class="btn btn-sm btn-outline-secondary" onclick="replyToComment(this)">Reply</button>
+                </div>
+                <div class="replies mt-2 ps-4"></div>
+            `;
+        
+            return box;
+        }
+        
+        function likeComment(btn) {
+            const badge = btn.querySelector("span");
+            let count = parseInt(badge.textContent);
+            badge.textContent = ++count;
+        }
+        
+        function replyToComment(btn) {
+            const parent = btn.closest(".comment-box");
+            const repliesContainer = parent.querySelector(".replies");
+        
+            const inputBox = document.createElement("div");
+            inputBox.className = "mt-2";
+            inputBox.innerHTML = `
+                <input type="text" class="form-control mb-1" placeholder="Your name">
+                <textarea class="form-control mb-1" rows="2" placeholder="Your reply"></textarea>
+                <button class="btn btn-sm btn-success" onclick="postReply(this)">Post Reply</button>
+            `;
+        
+            repliesContainer.appendChild(inputBox);
+        }
+        
+        function postReply(btn) {
+            const wrapper = btn.parentElement;
+            const name = wrapper.querySelector("input").value.trim();
+            const text = wrapper.querySelector("textarea").value.trim();
+        
+            if (!name || !text) return;
+        
+            const reply = document.createElement("div");
+            reply.className = "comment-box bg-light";
+            reply.innerHTML = `<strong>${name}:</strong> <span>${text}</span>`;
+        
+            wrapper.parentElement.appendChild(reply);
+            wrapper.remove(); // Remove reply input
+        }
+        </script>
+        
+    
+</body>
+</html>
